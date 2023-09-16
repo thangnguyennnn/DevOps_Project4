@@ -5,11 +5,11 @@
 # Step 1:
 # This is your Docker ID/path
 # dockerpath=<>
-docker_path=thangnh35
+docker_path=thangnh2405
 
 # Step 2
 # Create a deployment
-kubectl create deploy udacity-project4-microservice-for-machineLN --image="$docker_path/project-ml:v1.0.2"
+kubectl run project-ml-microservice-kubernetes --image="$docker_path/project-ml-microservice-kubernetes:latest" --port=80 --labels app=project-ml-microservice-kubernetes
 
 # Step 3:
 # List kubernetes pods
@@ -17,4 +17,4 @@ kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
-kubectl port-forward deployment.apps/udacity-project4-microservice-for-machineLN 8000:80
+kubectl port-forward project-ml-microservice-kubernetes 8080:80
